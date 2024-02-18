@@ -4,12 +4,12 @@
 
 これがツイート画面を開くためのURL
 ```
-http://twitter.com/intent/tweet
+https://twitter.com/intent/tweet
 ```
 
 これがツイート画面を開くついでにテキストを入れるURL
 ```
-http://twitter.com/intent/tweet?text=もじもじ
+https://twitter.com/intent/tweet?text=もじもじ
 ```
 
 ## ツイート画面にテキストを入れる処理
@@ -27,7 +27,7 @@ http://twitter.com/intent/tweet?text=もじもじ
 ```
 string text = "投稿内容";
 string str = Uri.EscapeDataString(text);
-string tweetURL = $"http://twitter.com/intent/tweet?text={str}";
+string tweetURL = $"https://twitter.com/intent/tweet?text={str}";
 ```
 
 ## 参考サイト
