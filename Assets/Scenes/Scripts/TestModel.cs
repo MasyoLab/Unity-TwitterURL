@@ -1,23 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
 /// 参考 : https://qiita.com/bm0521/items/39ae81e2ba01c9d3e0bd
+/// https://nekojara.city/unity-imgur-twitter-share
 /// </summary>
 
 public class TestModel : MonoBehaviour
 {
     [SerializeField]
-    private Button m_test = null;
+    private Button m_button = null;
+    [SerializeField]
+    private Text m_text = null;
 
     private string LF_CODE = "%0d";
 
     // Start is called before the first frame update
     private void Awake()
     {
-        m_test.onClick.AddListener(OnTest5);
+        m_button.onClick.AddListener(OnTest6);
     }
 
     /// <summary>
@@ -75,6 +79,11 @@ public class TestModel : MonoBehaviour
     private void OnTest5()
     {
         IntentTweet($"テストツイート{LF_CODE}Unityでテスト", "https://twitter.com/home", "Unity");
+    }
+
+    private void OnTest6()
+    {
+        TwitterShare.Share(m_text.text);
     }
 
     /// <summary>
