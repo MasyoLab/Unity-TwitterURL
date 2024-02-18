@@ -12,20 +12,10 @@ public static class TwitterShare
     /// Twitterシェアウィンドウを開く
     /// </summary>
     /// <param name="text">ツイート文言</param>
-    /// <param name="tags">ハッシュタグ</param>
-    public static void Share(string text, IEnumerable<string> tags = null)
+    public static void Share(string text)
     {
-        // ツイート用URL作成
-        var tweetURL = $"http://twitter.com/intent/tweet?text={Uri.EscapeUriString(text)}";
-        if (tags != null)
-        {
-            // ハッシュタグがあればパラメータに追加
-            var strTag = string.Join(",", tags);
-            if (!string.IsNullOrEmpty(strTag))
-            {
-                tweetURL += $"&hashtags={strTag}";
-            }
-        }
+        string str = Uri.EscapeDataString(text);
+        var tweetURL = $"http://twitter.com/intent/tweet?text={str}";
         // ツイート画面を新しいウィンドウで開く
         OpenWindow(tweetURL, 600, 300);
     }
