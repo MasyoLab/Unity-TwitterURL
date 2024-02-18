@@ -15,7 +15,7 @@ public static class TwitterShare
     public static void Share(string text)
     {
         string str = Uri.EscapeDataString(text);
-        var tweetURL = $"http://twitter.com/intent/tweet?text={str}";
+        var tweetURL = $"https://twitter.com/intent/tweet?text={str}";
         // ツイート画面を新しいウィンドウで開く
         OpenWindow(tweetURL, 600, 300);
     }
